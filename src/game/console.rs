@@ -1,5 +1,6 @@
 use system::{libc, memory};
 use std::fmt::{Error, Write};
+use super::super::Addr;
 
 #[repr(C)]
 #[derive(Copy, Clone)]
