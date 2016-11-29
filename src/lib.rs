@@ -51,6 +51,9 @@ pub use link::Link;
 #[allow(unused)]
 use prelude::*;
 
+#[path = "system/num/f32.rs"]    pub mod f32;
+#[path = "system/num/f64.rs"]    pub mod f64;
+
 pub mod std {
     pub use core::{any, cell, clone, cmp, convert, default, hash, i16, i32, i64, i8, isize, iter,
                    marker, mem, ops, option, ptr, result, u16, u32, u64, u8, usize, intrinsics};
@@ -58,8 +61,7 @@ pub mod std {
     pub use alloc::{arc, rc};
     pub use collections::{borrow, boxed, fmt, slice, str, string, vec};
     pub use system::{error, io, fs, ascii, time, num, thread, sync, ffi, path};
-    #[path = "../system/num/f32.rs"]    pub mod f32;
-    #[path = "../system/num/f64.rs"]    pub mod f64;
+    pub use super::{f32, f64};
 
     pub mod collections {
         pub use collections::{binary_heap, btree_map, btree_set, linked_list, vec_deque,
