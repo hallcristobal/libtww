@@ -45,8 +45,13 @@ impl Color {
 }
 
 impl Console {
+    #[cfg(feature = "ntsc_j")]
     pub fn get() -> &'static mut Console {
         memory::reference(0x80491A60)
+    }
+    #[cfg(feature = "ntsc_u")]
+    pub fn get() -> &'static mut Console {
+        memory::reference(0x804BE580)
     }
 
     pub fn setup(&mut self) {
